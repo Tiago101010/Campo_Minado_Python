@@ -1,0 +1,33 @@
+Relatório de Análise do Projeto: Campo Minado em Python
+Data: 15 de julho de 2025
+
+Versão: 1.0 (Funcional em Terminal)
+
+Autor: Tiago
+
+Tecnologia Principal: Python 3
+
+1. Objetivo Atual do Projeto
+O projeto consiste em um jogo de Campo Minado totalmente funcional, executado em uma interface de linha de comando (terminal). O jogador interage digitando coordenadas, e o estado do jogo é exibido através de texto impresso.
+
+2. Análise da Versão Atual
+Pontos Fortes:
+
+Lógica Central Implementada: O núcleo do jogo (gerar bombas, verificar vitória/derrota, contar pontos) está implementado e funcional.
+
+Rastreamento de Vizinhos: A função rastreador cumpre seu objetivo de calcular o número de bombas adjacentes para cada célula, que é a mecânica principal do jogo.
+
+Interatividade: O jogo possui um loop principal (while) que gerencia o fluxo de turnos, captura a entrada do jogador e atualiza o estado do jogo, provando que o conceito é sólido.
+
+Pontos a Melhorar (Desafios para a Migração Web):
+
+Alta Dependência do Terminal: Toda a interface do usuário (UI) está diretamente acoplada à lógica do jogo através das funções print() e input(). Para ir para um navegador, toda essa parte precisará ser substituída, separando completamente a "lógica do jogo" da "apresentação visual".
+
+Uso de Variáveis Globais: O código depende de variáveis globais (vetor, rastreia_bomba, bombas) que são modificadas por várias funções. Isso torna o código mais difícil de gerenciar e testar. Em um ambiente web, onde múltiplas instâncias do jogo poderiam teoricamente existir, isso é inviável.
+
+Lógica de Rastreamento Manual: A função rastreador utiliza uma longa sequência de if i == .... Embora funcione para uma grade 3x3 fixa, ela não é escalável nem eficiente. Uma abordagem algorítmica (como a que discutimos, baseada em posições relativas) seria muito mais robusta.
+
+Inconsistências de Tamanho: Ainda existe uma pequena inconsistência onde o vetor principal é criado com 10 elementos (max+1), mas o resto da lógica opera com 9 (max). Isso precisa ser padronizado para evitar bugs.
+
+3. Conclusão do Relatório
+O projeto é um sucesso como aplicativo de terminal e possui uma base lógica sólida. O principal desafio para a migração será refatorar o código para separar a lógica do jogo da sua interface, tornando-o mais modular e independente do ambiente onde ele é executado.
