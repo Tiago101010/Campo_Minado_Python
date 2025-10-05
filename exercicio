@@ -1,0 +1,47 @@
+print("iniciou")
+#Classe que coleta os dados
+class Carro:
+    print("abriu a classe 1")
+    #Atributos ou Variaveis
+    def __init__(self, marca, modelo, ano, ligado):
+        print("abriu a funcao 1")
+        self.marca = str(marca) 
+        self.modelo = str(modelo)
+        self.ano = int(ano)
+        self.ligado = bool(ligado)
+#Calsse que executas as funções
+class Veiculo(Carro):
+    print("abriu a classe 2")
+    # Métodos ou Funcões
+    # Método que liga o carro ou avisa que já está ligado 
+    def ligar (self, marca, modelo, ano, ligado):
+        print("abriu a funcao 2")
+        # A próxima linha chama os atributos da classe base
+        super().__init__(marca, modelo, ano, ligado)
+        if (self.ligado == False):
+            self.ligado = True
+        else:
+            print("O carro já está ligado")
+    # Métodos que desliga o carro ou avisa que ele já está desligado
+    def desligar(self, marca, modelo, ano, ligado):
+        print("abriu a funcao 3")
+        # A próxima linha chama os atributos da classe base
+        super().__init__(marca, modelo, ano, ligado)
+        if (self.ligado == True):
+            self.ligado = False
+        else:
+            print("O carro já está desligado")
+    #Mostra as informações que foram coletadas do veículo
+    def veiculo(self, marca, modelo, ano, ligado):
+        print("abriu a funcao 4")
+        # A próxima linha chama os atributos da classe base
+        super().__init__(marca, modelo, ano, ligado)
+        print(f"{self.marca}")
+        print(f"{self.modelo}")
+        print(f"{self.ano}")
+        print(f"{self.ligado}")
+        
+veiculo = Carro("fiat", "uno", 2005, True)
+Veiculo.veiculo("fiat", "uno", 2005, True)
+print("Ok!")
+    
