@@ -12,6 +12,7 @@ def validar_login ():
         resultado_login.configure(text = "Login realizado com sucesso!",text_color  = "green")
     else:
         resultado_login.configure(text = "falha no login", text_color = "red")
+
 #criação da janela principal
 app = ctk.CTk()
 app.title("Sistema de login")
