@@ -6,7 +6,7 @@ ctk.set_appearance_mode('dark')
 def validar_login ():
     usuario = campo_usuario.get()
     senha = campo_senha.get()
-    
+        
     #Verificar se o usuario é Tiago e a senha 123456
     if usuario == "Tiago" and senha == "123456":
         resultado_login.configure(text = "Login realizado com sucesso!",text_color  = "green")
