@@ -1,18 +1,24 @@
 import customtkinter as ctk
-
+import requests
 #configuração de aparecia
 ctk.set_appearance_mode('dark')
 #Criação das funções de funcionaçidades
 def validar_login ():
-    usuario = campo_usuario.get()
-    senha = campo_senha.get()
-        
-    #Verificar se o usuario é Tiago e a senha 123456
-    if usuario == "Tiago" and senha == "123456":
+    dados_de_login = {}
+    dados_de_login["username"] = campo_usuario.get()
+    dados_de_login["password"] = campo_senha.get()
+    
+    url = "https://dummyjson.com/auth/login"
+    #Comunica com a api se os dados são iguais
+    response = requests.post(url, json = dados_de_login)
+    #Informa se o usuario e senha estão corretos
+    if response.status_code == 200:
         resultado_login.configure(text = "Login realizado com sucesso!",text_color  = "green")
     else:
         resultado_login.configure(text = "falha no login", text_color = "red")
-
+    print(response)
+#Aqui voce deve controlar em qual página está o usuário
+pagina = 1
 #criação da janela principal
 app = ctk.CTk()
 app.title("Sistema de login")
