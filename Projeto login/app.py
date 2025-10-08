@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import requests
 #configuração de aparecia
-ctk.set_appearance_mode('dark')
+ctk.set_appearance_mode('dark-blue')
 #Criação das funções de funcionaçidades
 def validar_login ():
     dados_de_login = {}
@@ -30,7 +30,7 @@ campo_usuario.pack(pady = 10)
 #Entry
 campo_usuario = ctk.CTkEntry(app, placeholder_text = "Digite seu nome de usuário")
 campo_usuario.pack(pady = 10)
-#label
+#Label
 campo_senha = ctk.CTkLabel(app, text = "Senha:")
 campo_senha.pack()
 #Entry
@@ -42,5 +42,6 @@ botao_login.pack(pady = 10)
 #Campo fedeback de login
 resultado_login = ctk.CTkLabel(app, text= "")
 resultado_login.pack(pady = 10)
+#Campopara cadastrar usuario 
 #iniciar a aplicação
 app.mainloop()
